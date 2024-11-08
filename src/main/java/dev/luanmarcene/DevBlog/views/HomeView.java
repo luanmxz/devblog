@@ -1,5 +1,8 @@
 package dev.luanmarcene.DevBlog.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.vaadin.flow.component.messages.MessageInput;
 import com.vaadin.flow.component.messages.MessageList;
 import com.vaadin.flow.component.messages.MessageListItem;
@@ -22,8 +25,12 @@ public class HomeView extends VerticalLayout {
 
         add(input);
 
+        List<MessageListItem> listMessages = new ArrayList<>();
+
         input.addSubmitListener(event -> {
-            messages.setItems(new MessageListItem(event.getValue()));
+            listMessages.add(new MessageListItem(event.getValue()));
+
+            messages.setItems(listMessages.stream().map(message -> message).toList());
         });
 
     }

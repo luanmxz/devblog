@@ -26,3 +26,5 @@ replay_pid*
 docker/dbdata/
 src/main/frontend/
 target/
+
+node_modules/
